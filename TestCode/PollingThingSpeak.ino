@@ -7,7 +7,8 @@
 
 // ThingSpeak details
 #include "ThingSpeak.h"
-
+unsigned long myChannelNumber = 352618;
+const char * myWriteAPIKey = "JSPGFKETLJEQ28PA";
 
 
 void setup(){
@@ -15,23 +16,31 @@ void setup(){
     pinMode(LED_BUILTIN, OUTPUT);
 
     WiFiManager wifiManager;
-
+    WiFiClient  client;
     //reset saved settings
     //wifiManager.resetSettings();
 
     wifiManager.autoConnect("AutoConnectAP");
 
     Serial.print("Connection successful");
+    ThingSpeak.begin(client);
+    
+    
 }
 
 void loop() {
+    for (int i = 0; i<10; i++){
     digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-    delay(1000);                       // wait for a second
+    delay(5000);                       // wait for a second
     digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-    delay(1000);     
+    delay(5000); 
+    ThingSpeak.writeField(myChannelNumber, 1, i, myWriteAPIKey);
+    }
+    
+
+    
     // read the input on analog pin 0:
     //int sensorValue = analogRead(A0);
-
     // Write to ThingSpeak. There are up to 8 fields in a channel, allowing you to store up to 8 different
     // pieces of information in a channel.  Here, we write to field 1.
     //ThingSpeak.writeField(myChannelNumber, 1, voltage, myWriteAPIKey);

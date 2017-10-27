@@ -36,13 +36,4 @@ void loop() {
     Serial.print("Data sent");
     delay(10000);
     }
-    
-
-    
-    // read the input on analog pin 0:
-    //int sensorValue = analogRead(A0);
-    // Write to ThingSpeak. There are up to 8 fields in a channel, allowing you to store up to 8 different
-    // pieces of information in a channel.  Here, we write to field 1.
-    //ThingSpeak.writeField(myChannelNumber, 1, voltage, myWriteAPIKey);
-    //delay(20000); // ThingSpeak will only accept updates every 15 seconds.
   }

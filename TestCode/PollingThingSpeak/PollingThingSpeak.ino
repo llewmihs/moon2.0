@@ -5,18 +5,20 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h> 
 
+WiFiManager wifiManager;
+WiFiClient  client;
+
 // ThingSpeak details
 #include "ThingSpeak.h"
 unsigned long myChannelNumber = 352618;
 const char * myWriteAPIKey = "JSPGFKETLJEQ28PA";
-
+const char * myReadAPIKey = "C76TLVC2HCO96CKX";
+const char* host = "api.thingspeak.com";
 
 void setup(){
     Serial.begin(115200);
     pinMode(LED_BUILTIN, OUTPUT);
 
-    WiFiManager wifiManager;
-    WiFiClient  client;
     //reset saved settings
     //wifiManager.resetSettings();
 
@@ -30,11 +32,9 @@ void setup(){
 
 void loop() {
     for (int i = 0; i<10; i++){
-    digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-    delay(5000);                       // wait for a second
-    digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-    delay(5000); 
     ThingSpeak.writeField(myChannelNumber, 1, i, myWriteAPIKey);
+    Serial.print("Data sent");
+    delay(10000);
     }
     
 

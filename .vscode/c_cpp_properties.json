@@ -3,13 +3,15 @@
         {
             "name": "Mac",
             "includePath": [
-                "/Users/joe/Library/Arduino15/packages/esp8266/hardware/esp8266/2.4.0-rc2/cores/esp8266"
+                "/Users/joe/Library/Arduino15/packages/esp8266/hardware/esp8266/2.4.0-rc2/cores/esp8266",
+                "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": false,
                 "path": [
                     "/Users/joe/Library/Arduino15/packages/esp8266/hardware/esp8266/2.4.0-rc2/cores/esp8266",
-                    "${workspaceRoot}"
+                    "${workspaceRoot}",
+                    "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino"
                 ]
             },
             "intelliSenseMode": "clang-x64",

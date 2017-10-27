@@ -19,9 +19,6 @@ void setup(){
     Serial.begin(115200);
     pinMode(LED_BUILTIN, OUTPUT);
 
-    //reset saved settings
-    //wifiManager.resetSettings();
-
     wifiManager.autoConnect("AutoConnectAP");
 
     Serial.print("Connection successful");

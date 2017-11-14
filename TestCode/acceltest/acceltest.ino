@@ -1,5 +1,5 @@
 //Define the analog inputs
-const int x = A0;
+
 const int y = A1;
 const int z = A2;
 
